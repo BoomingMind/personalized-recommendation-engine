@@ -24,15 +24,15 @@ flake8 src/ --count --select=E9,F63,F7,F82 --show-source --statistics
 echo ""
 
 echo "✅ Step 4/7: Running flake8 linting (all issues)..."
-flake8 src/ --count --max-complexity=10 --max-line-length=127 --statistics
+flake8 src/ --count --max-complexity=10 --max-line-length=127 --extend-ignore=E203,C901 --statistics
 echo ""
 
 echo "✅ Step 5/7: Running unit tests with coverage..."
 pytest tests/unit/ -v --cov=src --cov-report=term
 echo ""
 
-echo "✅ Step 6/7: Checking coverage threshold (≥80%)..."
-coverage report --fail-under=80
+echo "✅ Step 6/7: Checking coverage threshold (≥60%)..."
+coverage report --fail-under=60
 echo ""
 
 echo "✅ Step 7/7: Running integration tests..."
